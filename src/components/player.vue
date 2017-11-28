@@ -1,6 +1,4 @@
 <template lang="pug">
-  //- #35235D
-  //- #CB2402
   .player.side
       h1.title {{ positionString }}
       .controls
