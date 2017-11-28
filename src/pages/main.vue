@@ -40,6 +40,15 @@ export default {
       if (e.position === 'd') {
         this.defenderDice = e.dice
       }
+    },
+    rollDice (dice) {
+      // dice should not be less than 1
+      return [...Array(dice).keys()]
+      .map(v => Math
+        .floor(
+          (Math.random() * 6) + 1)
+        )
+      .sort((a, b) => b - a)
     }
   }
 }

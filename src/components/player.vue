@@ -87,15 +87,6 @@ export default {
     }
   },
   methods: {
-    rollDice (dice) {
-      // dice should not be less than 1
-      return [...Array(dice).keys()]
-      .map(v => Math
-        .floor(
-          (Math.random() * 6) + 1)
-        )
-      .sort((a, b) => b - a)
-    },
     unitsChange (e) {
       // Trigger a change in the dice computed property
       // to force update based on new value of units
