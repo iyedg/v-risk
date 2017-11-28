@@ -63,6 +63,7 @@ export default {
       }
     },
     dice: {
+      // FIXME: an update in number of units should trigger an recomputation of dice
       get () {
         return this.intermediateDice
       },
