@@ -6,7 +6,7 @@
       .controls
         .row
           label(for="numberUnits") Number of units
-          input(type="number" v-model.number="units" :min="minUnits")
+          input(type="number" @change="unitsChange" v-model.number="units" :min="minUnits")
         .row
           label(for="numberDice") Number of dice
           input(type="number" v-model.number="dice" min="1" :max="maxDice")
@@ -83,6 +83,7 @@ export default {
         if (v >= this.units) {
           this.intermediateDice = this.units
         }
+        this.$emit('diceChange', {position: this.position, dice: this.intermediateDice})
         return this.intermediateDice
       }
     }
@@ -96,6 +97,12 @@ export default {
           (Math.random() * 6) + 1)
         )
       .sort((a, b) => b - a)
+    },
+    unitsChange (e) {
+      // Trigger a change in the dice computed property
+      // to force update based on new value of units
+      this.dice = this.intermediateDice
+      this.$emit('unitsChange', {position: this.position, units: this.units})
     }
   }
 }
