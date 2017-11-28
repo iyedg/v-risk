@@ -1,7 +1,8 @@
 <template lang="pug">
 #game
-  player(position="a" @unitsChange="updateUnits" @diceChange="updateDice")
-  player(position="d" @unitsChange="updateUnits" @diceChange="updateDice")
+  player(class="attacker" position="a" @unitsChange="updateUnits" @diceChange="updateDice")
+  player(class="defender" position="d" @unitsChange="updateUnits" @diceChange="updateDice")
+  button(@click.native.stop="playAttack") Attack
 </template>
 
 <script>
@@ -57,5 +58,18 @@ html, body, #app, #game
 #game
   flex-direction: row
   display: flex
+  color: white
+  font-family: sans-serif
+  button
+    order: 2
+    background: turquoise
+
+.attacker
+  order: 1
+  background: #35235D
+
+.defender
+  order: 3  
+  background: #CB2402
 </style>
 
