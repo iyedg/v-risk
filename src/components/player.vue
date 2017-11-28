@@ -104,6 +104,11 @@ export default {
       this.dice = this.intermediateDice
       this.$emit('unitsChange', {position: this.position, units: this.units})
     }
+  },
+  created () {
+    // Emit initial values to parent component
+    this.$emit('unitsChange', {position: this.position, units: this.units})
+    this.$emit('diceChange', {position: this.position, dice: this.intermediateDice})
   }
 }
 </script>
