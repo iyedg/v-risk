@@ -44,9 +44,18 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
+
+*, *:before, *:after 
+  box-sizing: border-box
+
+html, body, #app, #game 
+  height: 100%
+  margin: 0
+  padding: 0
+
 #game
-  display: flex
   flex-direction: row
+  display: flex
 </style>
 
