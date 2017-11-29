@@ -21,11 +21,14 @@ export default {
       default: 'a',
       // A player may be in a position of attack or defense
       validator: v => v === 'a' || v === 'd'
+    },
+    units: {
+      type: Number,
+      default: '2'
     }
   },
   data () {
     return {
-      units: 2,
       intermediateDice: 2
     }
   },
