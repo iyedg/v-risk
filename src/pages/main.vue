@@ -1,10 +1,7 @@
 <template lang="pug">
 #game
   player(class="attacker" position="a")
-  player(class="defender" position="d")
-  .column
-    button(@click="playAttack") Attack
-    button(@click="blitz") Blitz
+  //- player(class="defender" position="d")
 </template>
 
 <script>

@@ -4,7 +4,7 @@
       .controls
         .row
           label(for="numberUnits") Number of units
-          input(type="number" v-model.number="currentUnits" :min="constraints(position).minUnits")
+          input(type="number" v-model.number="currentUnits")
         .row
           label(for="numberDice") Number of dice
           input(type="number" v-model.number="currentDice" :min="1" :max="constraints(position).maxDice")
@@ -39,11 +39,18 @@ export default {
     maxDice () {
       return this.constraints(this.position).maxDice
     },
-    currentUnits () {
-      return this.constraints(this.position).currentUnits
+    currentUnits: {
+      get () {
+        return this.constraints(this.position).currentUnits
+      },
+      set (newUnits) {
+        this.$store.commit('setCurrentUnits', {units: newUnits, position: this.position})
+      }
     },
-    currentDice () {
-      return this.constraints(this.position).currentDice
+    currentDice: {
+      get () {
+        return this.constraints(this.position).currentDice
+      }
     },
     positionString () {
       const positionToString = {
